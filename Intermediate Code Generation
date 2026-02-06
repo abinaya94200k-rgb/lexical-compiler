@@ -1,2 +1,19 @@
 def intermediate_code(tokens):
-    return f"t1 = {tokens[2]} + {tokens[4]}\n{tokens[0]} = t1"
+    print("\nPHASE 4: INTERMEDIATE CODE GENERATION")
+    i = 0
+    temp = 1
+
+    while i < len(tokens):
+        if tokens[i][0] == "IDENTIFIER" and tokens[i+1][1] == "=":
+            left = tokens[i][1]
+
+            if tokens[i+3][1] == "+":
+                print(f"t{temp} = {tokens[i+2][1]} + {tokens[i+4][1]}")
+                print(f"{left} = t{temp}")
+                temp += 1
+                i += 6
+            else:
+                print(f"{left} = {tokens[i+2][1]}")
+                i += 4
+        else:
+            i += 1

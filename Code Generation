@@ -1,0 +1,6 @@
+def code_generation():
+    return [
+        "LOAD b",
+        "ADD 5",
+        "STORE a"
+    ]

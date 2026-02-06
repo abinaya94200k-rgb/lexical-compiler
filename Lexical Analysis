@@ -1,18 +1,24 @@
-def lexical_analyzer(code):
+def lexical_analysis(program):
     tokens = []
-    token = ""
+    keywords = ["int"]
+    operators = ["=", "+", ";"]
 
-    for ch in code:
-        if ch.isalnum():
-            token += ch
-        else:
-            if token:
-                tokens.append(token)
-                token = ""
-            if ch.strip():
-                tokens.append(ch)
+    for line in program:
+        line = line.replace(";", " ;")
+        words = line.split()
 
-    if token:
-        tokens.append(token)
+        for word in words:
+            if word in keywords:
+                tokens.append(("KEYWORD", word))
+            elif word in operators:
+                tokens.append(("OPERATOR", word))
+            elif word.isdigit():
+                tokens.append(("NUMBER", word))
+            else:
+                tokens.append(("IDENTIFIER", word))
+
+    print("\nPHASE 1: LEXICAL ANALYSIS")
+    for t in tokens:
+        print(t)
 
     return tokens

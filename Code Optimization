@@ -1,0 +1,2 @@
+def code_optimization(intermediate):
+    return intermediate.replace("t1 = b + 5", "t1 = b + 5")  # simple placeholder

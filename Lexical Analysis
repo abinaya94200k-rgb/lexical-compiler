@@ -1,0 +1,18 @@
+def lexical_analyzer(code):
+    tokens = []
+    token = ""
+
+    for ch in code:
+        if ch.isalnum():
+            token += ch
+        else:
+            if token:
+                tokens.append(token)
+                token = ""
+            if ch.strip():
+                tokens.append(ch)
+
+    if token:
+        tokens.append(token)
+
+    return tokens

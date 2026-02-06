@@ -1,0 +1,4 @@
+def syntax_analyzer(tokens):
+    if len(tokens) == 5 and tokens[1] == "=" and tokens[3] == "+":
+        return "Syntax is correct"
+    return "Syntax Error"

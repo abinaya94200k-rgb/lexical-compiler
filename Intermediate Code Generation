@@ -1,0 +1,2 @@
+def intermediate_code(tokens):
+    return f"t1 = {tokens[2]} + {tokens[4]}\n{tokens[0]} = t1"

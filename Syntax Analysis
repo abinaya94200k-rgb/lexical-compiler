@@ -1,4 +1,21 @@
-def syntax_analyzer(tokens):
-    if len(tokens) == 5 and tokens[1] == "=" and tokens[3] == "+":
-        return "Syntax is correct"
-    return "Syntax Error"
+def syntax_analysis(tokens):
+    print("\nPHASE 2: SYNTAX ANALYSIS")
+    i = 0
+
+    while i < len(tokens):
+        # Declaration: int a ;
+        if tokens[i][1] == "int":
+            i += 3
+
+        # Assignment: a = 10 ; OR c = a + b ;
+        elif tokens[i][0] == "IDENTIFIER":
+            i += 4
+            if i < len(tokens) and tokens[i-2][1] == "+":
+                i += 2
+
+        else:
+            print("Syntax Error")
+            return False
+
+    print("✔ Syntax is Correct")
+    return True

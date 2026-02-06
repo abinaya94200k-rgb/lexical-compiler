@@ -1,6 +1,18 @@
-def code_generation():
-    return [
-        "LOAD b",
-        "ADD 5",
-        "STORE a"
-    ]
+def code_generation(tokens):
+    print("\nPHASE 6: CODE GENERATION")
+    i = 0
+
+    while i < len(tokens):
+        if tokens[i][0] == "IDENTIFIER" and tokens[i+1][1] == "=":
+            print(f"LOAD {tokens[i+2][1]}")
+            if tokens[i+3][1] == "+":
+                print(f"ADD {tokens[i+4][1]}")
+                print(f"STORE {tokens[i][1]}")
+                i += 6
+            else:
+                print(f"STORE {tokens[i][1]}")
+                i += 4
+        else:
+            i += 1
+
+    

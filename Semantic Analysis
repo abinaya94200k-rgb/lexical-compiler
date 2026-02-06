@@ -1,0 +1,5 @@
+def semantic_analyzer(tokens):
+    variables = {"b": "int"}  # declared variables
+    if tokens[2] not in variables:
+        return "Semantic Error: Variable not declared"
+    return "Semantic is correct"
